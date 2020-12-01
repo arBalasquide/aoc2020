@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+"""
+
+    Run time complexity       O(N^2)
+    Space complexity          O(1)
+
+"""
+
 def main():
     with open('input') as f:
         expenses = f.readlines()
