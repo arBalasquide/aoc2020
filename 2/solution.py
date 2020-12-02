@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Both parts run in O(N) time complexity. Kinda ugly solution but ¯\_(ツ)_/¯
+Both parts run in O(N^2) time complexity. Kinda ugly solution but ¯\_(ツ)_/¯
 """
 
 def part1(passwords):
