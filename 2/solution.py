@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 """
-Both parts run in O(N^2) time complexity. Kinda ugly solution but ¯\_(ツ)_/¯
+Kinda ugly solution but ¯\_(ツ)_/¯
 """
 
-def part1(passwords):
-    count = 0
 
-    for password in passwords:
+def part1(data):
+    count = 0
+    for password in data:
         parse = password.split()
         parse[0] = parse[0].split('-')
         if int(parse[2].count(parse[1][0])) <= int(parse[0][1]):
@@ -17,18 +17,18 @@ def part1(passwords):
     return count
 
 
-def part2(passwords):
+def part2(data):
     count = 0
-
-    for password in passwords:
+    for password in data:
         parse = password.split()
-        parse[0] = parse[0].split('-')  
+        ranges = parse[0].split('-')  
         
-        a = int(parse[0][0])
-        b = int(parse[0][1])
-        c = parse[1][0]
+        char = parse[1][0]
 
-        if (parse[2][a-1] is c) != (parse[2][b-1] is c):
+        policy1 = parse[2][int(ranges[0])-1] is char
+        policy2 = parse[2][int(ranges[1])-1] is char
+
+        if policy1 ^ policy2:
             count += 1
         
     return count
@@ -36,7 +36,7 @@ def part2(passwords):
 
 if __name__ == "__main__":
    with open('input') as f:
-        passwords = f.readlines()
+        data = f.readlines()
 
-        print(part1(passwords))
-        print(part2(passwords))
+        print("Part one:", part1(data))
+        print("Part two:", part2(data))
