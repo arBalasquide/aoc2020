@@ -7,19 +7,16 @@
 
 
 def tree_finder(forest, right, down):
-    row, col = 0,0
+    row = col = 0
     trees = 0
 
-    col_len = len(forest[0])
+    width = len(forest[0])
     
     while row < len(forest):
-        if col >= col_len:
-            col -= col_len
-
         if forest[row][col] == '#':
             trees += 1
         
-        col += right
+        col = (col + right) % (width)
         row += down
 
     return trees
